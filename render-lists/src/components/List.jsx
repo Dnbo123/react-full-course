@@ -1,26 +1,34 @@
+import PropTypes from 'prop-types'
 
-function List() {
-  const fruits = [{id: 1, name: "Cococnut", calories:95}, 
-                {id: 2, name: "Orange", calories:45}, 
-                {id: 3, name: "Banana", calories:50}, 
-                {id: 4, name: "PineApple", calories:87}];
-                     
-                      /*
-                //Sorting list in alphabetical order
-                fruits.sort((a, b) => a.name.localeCompare(b.name));
-                        */
-                       /*
-                 //Sorting list in reverse-alphabetical order
-                 fruits.sort((a, b) => b.name.localeCompare(a.name));
-                        */
-                //Sorting list in terms of calories in Numeric order
-                fruits.sort((a, b) => a.calories -b.calories);
+function List(props) {
+    const category = props.category;
+    const itemList = props.items;
 
-       const listItems= fruits.map(fruit => <li key={fruit.id}>
-                                  {fruit.name}: &nbsp; 
-                                  <b>{fruit.calories}</b></li>);
+    const listItems = itemList.map(items =><li key={itemList.id}>
+                       {items.name} &nbsp;
+                       <b>{items.calories}</b></li>
+                       )
 
-       return(<ul>{listItems}</ul>)
+       return(
+        <>
+            <h3 className="list-category">{category}</h3>
+            <ol className="list-items">{listItems}</ol>
+        </>
+       );
+}
+//Seting up propTypes
+List.PropTypes = {
+    category:PropTypes.string,
+    items: PropTypes.arrayOf(PropTypes.shape({id: PropTypes.number,
+                                                name:PropTypes.string,
+                                                calories:PropTypes.number }))
+                                        
 }
 
+
+//Setting up default props
+List.defaultProps = {
+    category: "Default Category",
+    items: [],
+}
 export default List;
