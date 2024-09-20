@@ -9,12 +9,14 @@ function Student(props) {
 </div>
     );
 }
+
 //Creating a prop Types
 Student.propTypes = {
     name: propTypes.string.isRequired,
     age: propTypes.number,
     isStudent: propTypes.bool.isRequired,
 }
+
 //Adding a default props
 Student.defaultProps = {
     name: "Guest",
