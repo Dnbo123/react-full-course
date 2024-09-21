@@ -1,0 +1,24 @@
+.counter-div {
+  text-align: center;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+.count-display {
+ font-size: 3.5rem;
+ margin-top: 0px;
+ margin-bottom: 20px;
+}
+
+.count-btn{
+  font-size: 1rem;
+  padding: 10px;
+  margin: 0px 5px;
+  border: 1px dotted black;
+  border-radius: 10px;
+  background-color: hsla(55, 85%, 49%, 0.105);
+  cursor: pointer;
+}
+
+.count-btn:hover{
+  background-color: hsla(55, 85%, 49%, 0.758);
+}
